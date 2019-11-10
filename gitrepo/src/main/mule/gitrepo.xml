@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="48f15e7a-ee5b-47cc-932b-d58abddef5c1" >
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<flow name="gitrepoFlow" doc:id="4e90c4cf-5d52-4f63-adaf-b376babb058a" >
+		<http:listener doc:name="Listener" doc:id="60f3f18e-3832-4804-8201-c19666de0576" config-ref="HTTP_Listener_config" path="/"/>
+		<set-payload value="git test" doc:name="Set Payload" doc:id="9bb30bec-387d-43b7-8424-eaf4d01b1f92" />
+		<logger level="INFO" doc:name="Logger" doc:id="08c1cb87-39d7-4b99-87f8-17daa4521c6c" message="done"/>
+	</flow>
+</mule>
